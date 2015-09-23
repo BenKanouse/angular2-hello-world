@@ -1,0 +1,8 @@
+<p>My name: {{ myName }}</p>
+<p>Friends:</p>
+<ul>
+  <li *ng-for="#name of names">
+    {{ name }}
+  </li>
+</ul>
+<input #textbox (keyup)="myControllerMethod(textbox.value)">
