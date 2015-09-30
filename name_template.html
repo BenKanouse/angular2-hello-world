@@ -1,8 +1,9 @@
 <p>My name: {{ myName }}</p>
 <p>Friends:</p>
 <ul>
-  <li *ng-for="#name of names">
-    {{ name }}
+  <li *ng-for="#friendName of names">
+    <friend [bro-name]="friendName"></friend>
+    {{ friendName }}
   </li>
 </ul>
 <input #textbox (keyup)="myControllerMethod(textbox.value)">

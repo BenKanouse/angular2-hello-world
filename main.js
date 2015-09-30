@@ -6,6 +6,23 @@ function FriendsService() {
 }
 
 
+function FriendComponent() {
+
+  this.broNames = function() {
+      return "Mr." + this.broName;
+  }
+}
+
+FriendComponent.annotations = [
+  new angular.ComponentAnnotation({
+    selector: 'friend',
+    properties: ['broName']
+  }),
+  new angular.ViewAnnotation({
+    template: '<h1>{{ broNames() + broNames() }}</h1>'
+  })
+]
+
 function AppComponent(friends) {
   this.myName = 'Alice';
   that = this;
@@ -25,9 +42,10 @@ AppComponent.annotations = [
   }),
   new angular.ViewAnnotation({
     templateUrl: 'name_template.html',
-    directives: [angular.NgFor]
+    directives: [angular.NgFor, FriendComponent]
   })
 ];
+
 
 console.log("setting params")
 AppComponent.parameters = [[FriendsService]];
